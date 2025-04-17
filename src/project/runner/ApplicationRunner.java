@@ -25,12 +25,12 @@ public class ApplicationRunner {
 
         CommandType commandType = isArgumentsValid(args[COMMAND_TYPE_ARG_POSITION]);
 
-        if(commandType != BRUTE_FORCE){
-            if (args.length < MAX_ALLOWED_ARGS_COUNT){
+        if (commandType != BRUTE_FORCE) {
+            if (args.length < MAX_ALLOWED_ARGS_COUNT) {
                 throw new InvalidArgumentsException("Invalid arguments count!");
             }
         } else {
-            if (args.length < MAX_ALLOWED_ARGS_COUNT_FOR_BRUTE_FORCE){
+            if (args.length < MAX_ALLOWED_ARGS_COUNT_FOR_BRUTE_FORCE) {
                 throw new InvalidArgumentsException("Invalid arguments count!");
             }
         }
@@ -51,7 +51,7 @@ public class ApplicationRunner {
         String resultContent = operations.get(commandType).execute(content);
 
         FileService fileService = new FileService();
-        fileService.writeFile(commandType,filePath,resultContent);
+        fileService.writeFile(commandType, filePath, resultContent);
 
     }
 

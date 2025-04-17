@@ -6,6 +6,6 @@ public class BruteForceCeasar extends CaesarCipherAction {
     @Override
     public String execute(String text) {
 
-        return cipher.shiftText(text,1);
+        return cipher.shiftText(text, 1);
     }
 }
