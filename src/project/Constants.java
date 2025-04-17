@@ -12,6 +12,8 @@ public final class Constants {
     public static final int KEY_ARG_POSITION = 2;
     public static final int MAX_ALLOWED_ARGS_COUNT = 3;
     public static final int MAX_ALLOWED_ARGS_COUNT_FOR_BRUTE_FORCE = 2;
+    public static final int SHIFT_FOR_KEY_CODING = 20;
+    public static final int MAX_KEY_LENGTH = 2;
 
     public static final ArrayList<Character> ALPHABET_EN = new ArrayList<>(
             Arrays.asList(
