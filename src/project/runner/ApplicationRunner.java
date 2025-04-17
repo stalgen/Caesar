@@ -41,7 +41,10 @@ public class ApplicationRunner {
 
         String content = getFileContent(path);
 
-        int key = Integer.parseInt(args[KEY_ARG_POSITION]);
+        int key = 0;
+        if (commandType != BRUTE_FORCE) {
+            key = Integer.parseInt(args[KEY_ARG_POSITION]);
+        }
 
         Map<CommandType, CaesarCipherAction> operations = Map.of(
                 ENCRYPT, new EncryptCaesar(key),
