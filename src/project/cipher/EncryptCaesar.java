@@ -1,6 +1,6 @@
 package project.cipher;
 
-public class EncryptCaesar extends CaesarCipherAction{
+public class EncryptCaesar extends CaesarCipherAction {
     private final int key;
     private final CaesarCipher cipher = new CaesarCipher();
 

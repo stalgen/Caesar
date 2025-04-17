@@ -9,8 +9,8 @@ import java.nio.file.Path;
 
 public class FileService {
 
-    public void writeFile (CommandType commandType, String fileName, String content) {
-        Path filePath = Path.of(getNewFileName(fileName,commandType));
+    public void writeFile(CommandType commandType, String fileName, String content) {
+        Path filePath = Path.of(getNewFileName(fileName, commandType));
         try {
             Files.createFile(filePath);
             Files.writeString(filePath, content);
@@ -21,7 +21,7 @@ public class FileService {
 
     private static String getNewFileName(String oldFileName, CommandType commandType) {
         int dotIndex = oldFileName.lastIndexOf(".");
-        return oldFileName.substring(0, dotIndex) + "[" +commandType.toString() +"]" + oldFileName.substring(dotIndex);
+        return oldFileName.substring(0, dotIndex) + "[" + commandType.toString() + "]" + oldFileName.substring(dotIndex);
     }
 
 }
