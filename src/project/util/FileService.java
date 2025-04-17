@@ -19,7 +19,7 @@ public class FileService {
         }
     }
 
-    public static String getNewFileName(String oldFileName, CommandType commandType) {
+    private static String getNewFileName(String oldFileName, CommandType commandType) {
         int dotIndex = oldFileName.lastIndexOf(".");
         return oldFileName.substring(0, dotIndex) + "[" +commandType.toString() +"]" + oldFileName.substring(dotIndex);
     }
