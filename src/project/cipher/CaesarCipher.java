@@ -2,6 +2,8 @@ package project.cipher;
 
 import project.CommandType;
 
+import java.util.ArrayList;
+
 import static project.CommandType.*;
 import static project.Constants.*;
 
@@ -19,17 +21,19 @@ public class CaesarCipher {
             shift = decryptKey(text);
         }
 
+        ArrayList<Character> ALPHABET = defineLanguage(text);
+
         for (char c : text.toCharArray()) {
             if (commandType != ENCRYPT && index < MAX_KEY_LENGTH) {
                 index++;
                 continue;
             }
-            int indexInAlphabet = ALPHABET_EN.indexOf(c);
+            int indexInAlphabet = ALPHABET.indexOf(c);
             char resultSymbol;
             if (indexInAlphabet == -1) {
                 resultSymbol = c;
             } else {
-                resultSymbol = ALPHABET_EN.get((ALPHABET_EN.size() + indexInAlphabet + shift) % ALPHABET_EN.size());
+                resultSymbol = ALPHABET.get((ALPHABET.size() + indexInAlphabet + shift) % ALPHABET.size());
             }
             result.append(resultSymbol);
         }
@@ -54,6 +58,28 @@ public class CaesarCipher {
 
         }
         return Integer.parseInt(decryptKey);
+    }
+
+    private ArrayList<Character> defineLanguage(String text){
+        int numberOfCharacters = 0;
+        int maxNumber = Math.min(NUM_CHAR_LANGUAGE_DETERMINATION,text.length());
+        int entryIntoALPHABET_EN = 0;
+        int entryIntoALPHABET_UA = 0;
+        for (char c : text.toCharArray()) {
+            if (numberOfCharacters > maxNumber){
+                break;
+            }
+            if (ALPHABET_EN.contains(c)){
+                entryIntoALPHABET_EN++;
+            }
+            if (ALPHABET_UA.contains(c)){
+                entryIntoALPHABET_UA++;
+            }
+            numberOfCharacters++;
+        }
+
+
+        return entryIntoALPHABET_EN>=entryIntoALPHABET_UA ? ALPHABET_EN : ALPHABET_UA;
     }
 }
 
