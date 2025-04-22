@@ -1,7 +1,7 @@
 package project.runner;
 
 import project.CommandType;
-import project.cipher.BruteForceCeasar;
+import project.cipher.BruteForceCaesar;
 import project.cipher.CaesarCipherAction;
 import project.cipher.DecryptCaesar;
 import project.cipher.EncryptCaesar;
@@ -49,7 +49,7 @@ public class ApplicationRunner {
         Map<CommandType, CaesarCipherAction> operations = Map.of(
                 ENCRYPT, new EncryptCaesar(key),
                 DECRYPT, new DecryptCaesar(key),
-                BRUTE_FORCE, new BruteForceCeasar());
+                BRUTE_FORCE, new BruteForceCaesar());
 
         String resultContent = operations.get(commandType).execute(content);
 

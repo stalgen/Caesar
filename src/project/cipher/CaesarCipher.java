@@ -9,16 +9,13 @@ import static project.Constants.*;
 
 public class CaesarCipher {
     public String shiftText(String text, int key, CommandType commandType) {
-        int shift = key;
+
         StringBuilder result = new StringBuilder();
 
         int index = 0;
 
         if (commandType == ENCRYPT) {
-            encryptKey(result, shift);
-        }
-        if (commandType == BRUTE_FORCE) {
-            shift = decryptKey(text);
+            encryptKey(result, key);
         }
 
         ArrayList<Character> ALPHABET = defineLanguage(text);
@@ -33,7 +30,7 @@ public class CaesarCipher {
             if (indexInAlphabet == -1) {
                 resultSymbol = c;
             } else {
-                resultSymbol = ALPHABET.get((ALPHABET.size() + indexInAlphabet + shift) % ALPHABET.size());
+                resultSymbol = ALPHABET.get((ALPHABET.size() + indexInAlphabet + key) % ALPHABET.size());
             }
             result.append(resultSymbol);
         }
@@ -49,37 +46,25 @@ public class CaesarCipher {
         }
     }
 
-    private int decryptKey(String text) {
-        String keyStr = text.substring(0, MAX_KEY_LENGTH);
-        String decryptKey = "";
-        for (char c : keyStr.toCharArray()) {
-            int indexInAlphabet = ALPHABET_EN.indexOf(c);
-            decryptKey = decryptKey + ALPHABET_EN.get((ALPHABET_EN.size() + indexInAlphabet - SHIFT_FOR_KEY_CODING) % ALPHABET_EN.size());
-
-        }
-        return Integer.parseInt(decryptKey);
-    }
-
-    private ArrayList<Character> defineLanguage(String text){
+    private ArrayList<Character> defineLanguage(String text) {
         int numberOfCharacters = 0;
-        int maxNumber = Math.min(NUM_CHAR_LANGUAGE_DETERMINATION,text.length());
+        int maxNumber = Math.min(NUM_CHAR_LANGUAGE_DETERMINATION, text.length());
         int entryIntoALPHABET_EN = 0;
         int entryIntoALPHABET_UA = 0;
         for (char c : text.toCharArray()) {
-            if (numberOfCharacters > maxNumber){
+            if (numberOfCharacters > maxNumber) {
                 break;
             }
-            if (ALPHABET_EN.contains(c)){
+            if (ALPHABET_EN.contains(c)) {
                 entryIntoALPHABET_EN++;
             }
-            if (ALPHABET_UA.contains(c)){
+            if (ALPHABET_UA.contains(c)) {
                 entryIntoALPHABET_UA++;
             }
             numberOfCharacters++;
         }
 
-
-        return entryIntoALPHABET_EN>=entryIntoALPHABET_UA ? ALPHABET_EN : ALPHABET_UA;
+        return entryIntoALPHABET_EN >= entryIntoALPHABET_UA ? ALPHABET_EN : ALPHABET_UA;
     }
 }
 
