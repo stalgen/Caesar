@@ -20,6 +20,7 @@ import static project.CommandType.*;
 import static project.Constants.*;
 import static project.util.CipherKeyValidatorUtil.isArgumentsValid;
 
+
 public class ApplicationRunner {
     public void run(String[] args) {
 

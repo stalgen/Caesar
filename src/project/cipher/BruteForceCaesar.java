@@ -4,6 +4,7 @@ import static project.CommandType.DECRYPT;
 import static project.Constants.*;
 import static project.Constants.ALPHABET_EN;
 
+
 public class BruteForceCaesar extends CaesarCipherAction {
     private final CaesarCipher cipher = new CaesarCipher();
 

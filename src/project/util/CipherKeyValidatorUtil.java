@@ -5,6 +5,7 @@ import project.exceptions.InvalidKeyException;
 
 import static project.Constants.ALLOWED_KEY;
 
+
 public class CipherKeyValidatorUtil {
 
     public static CommandType isArgumentsValid(String commandStr) {

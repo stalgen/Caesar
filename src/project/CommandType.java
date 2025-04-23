@@ -1,5 +1,6 @@
 package project;
 
+
 public enum CommandType {
     ENCRYPT,
     DECRYPT,

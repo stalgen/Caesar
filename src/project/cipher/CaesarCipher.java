@@ -1,9 +1,7 @@
 package project.cipher;
 
 import project.CommandType;
-
 import java.util.ArrayList;
-
 import static project.CommandType.*;
 import static project.Constants.*;
 
