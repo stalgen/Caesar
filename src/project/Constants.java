@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public final class Constants {
     public static List<String> ALLOWED_KEY = List.of("ENCRYPT", "DECRYPT", "BRUTE_FORCE");
 
